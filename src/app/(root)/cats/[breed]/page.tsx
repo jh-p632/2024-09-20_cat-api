@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { Cats } from "@/types/cats-api-types";
 import React from "react";
 import { BiSolidLike } from "react-icons/bi";
 import { BiSolidDislike } from "react-icons/bi";
@@ -22,9 +23,9 @@ async function CatsOnBreedPage(props: { params: { breed: string } }) {
 	);
 
 	const breed = await response1.json();
-	const cats = await response2.json();
+	const cats = (await response2.json()) as Cats;
 
-	// console.log(breed);
+	console.log(cats);
 
 	return (
 		<div className="w-screen">
